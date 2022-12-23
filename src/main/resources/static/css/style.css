@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+img {
+		
+		max-width: 300px;
+		max-height: 300px;
+	}
+.inline {
+
+	display: inline;
+}
+
+.text-danger {
+	
+	color: red;
+}

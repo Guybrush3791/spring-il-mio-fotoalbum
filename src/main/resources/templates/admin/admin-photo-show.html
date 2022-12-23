@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body
+	th:object="${photo}"
+>
+	<div th:replace="frags/admin-frags.html :: photo-list (-1, ${errors})"></div>
+	<h1>PHOTO: [[*{id}]]</h1>
+	<div>
+		Title: [[*{title}]]
+		<br><br>
+		Description:
+		<br>
+		[[*{description}]]
+		<br><br>
+		Visibility: <span th:text="*{visible} ? YES : NO"></span>
+		<br>
+		Visibility: <span th:text="*{visible}"></span>
+		<br>
+		Categories: [[*{categoriesStr}]]
+		<br>
+		Tags: [[*{tagsStr}]]
+		<br><br>
+		<img th:src="*{url}">
+		<br><br>
+		<form 
+			th:action="@{/admin/photo/edit/{id} (id=*{id})}"
+			class="inline"
+		>
+			<input type="submit" value="EDIT">
+		</form>
+		<form 
+			th:action="@{/admin/photo/delete/{id} (id=*{id})}"
+			class="inline"
+		>
+			<input type="submit" value="DELETE">
+		</form>
+	</div>
+</body>
+</html>

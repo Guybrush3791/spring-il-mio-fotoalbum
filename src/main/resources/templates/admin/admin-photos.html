@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet" href="/css/style.css">
+<body>
+	<div th:replace="frags/admin-frags.html :: photo-list (1, ${errors})"></div>
+	<h3>Create new photo</h3>	
+	<form th:action="@{/admin/photo/new}">
+		<input type="submit" value="CREATE NEW PHOTO">
+	</form>
+	<h3>Search by NAME or TAGs</h3>
+	<div th:replace="frags/photo-frags.html :: search-form"></div>
+	<h2>Photos:</h2>
+	<ul th:replace="frags/photo-frags.html :: photo-list (true, ${photos})"></ul>
+</body>
+</html>

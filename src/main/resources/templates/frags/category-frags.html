@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- PHOTO FORM -->
+
+	<form
+		id="category-form-frag"
+		th:fragment="category-form (category)" 
+		th:object="${category}"
+		method="POST"
+		th:action="@{/admin/category/edit/{id} (id=*{id})}"
+	>
+		<label for="name">Name </label>
+		<input type="text" name="name" th:field="*{name}">
+		<br><br>
+		<input type="submit" value="SAVE">
+	</form>
+
+</body>
+</html>

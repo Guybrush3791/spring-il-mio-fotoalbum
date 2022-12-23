@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body
+	th:object="${category}"
+>
+	<div th:replace="frags/admin-frags.html :: photo-list (-1, ${errors})"></div>
+	<h1 th:text="'CATEGORY: ' + (*{id} > 0 ? *{id} : 'NEW')"></h1>
+	<form th:replace="frags/category-frags.html :: category-form (${category})"></form>	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div
+		th:fragment="photo-list (disabledIndex, errors)"
+	>
+		<h1>
+			ADMIN HOME - 
+			<span th:if="${disabledIndex == 1}">PHOTO</span>
+			<a href="/admin" th:unless="${disabledIndex == 1}">PHOTO</a>
+			 - 
+			<span th:if="${disabledIndex == 2}">CATEGORY</span>
+			<a href="/admin/category" th:unless="${disabledIndex == 2}">CATEGORY</a>
+		</h1>
+		<form action="/logout" method="POST">
+			<input type="submit" value="LOGOUT">
+		</form>
+		<br>
+		<div th:if="${errors}" class="text-danger">
+			<h3>Errors:</h3>
+			<ul>
+				<li 
+					th:each="error : ${errors}" 
+					th:object="${error}"
+				>
+					[[*{defaultMessage}]]
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>

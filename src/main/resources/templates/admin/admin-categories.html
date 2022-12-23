@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="frags/admin-frags.html :: photo-list (2, ${errors})"></div>
+	<h3>Create new category</h3>	
+	<form th:action="@{/admin/category/new}">
+		<input type="submit" value="CREATE NEW CATEGORY">
+	</form>
+	<ul>
+		<li
+			th:each="category : ${categories}"
+			th:object="${category}"
+		>
+			[[*{name}]]
+			-
+			<a th:href="@{/admin/category/edit/{id} (id=*{id})}">EDIT</a>
+			-
+			<a th:href="@{/admin/category/delete/{id} (id=*{id})}">DELETE</a>
+		</li>
+	</ul>	
+</body>
+</html>
